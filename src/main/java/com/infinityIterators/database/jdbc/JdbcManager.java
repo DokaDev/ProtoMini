@@ -10,12 +10,14 @@ public class JdbcManager {
     private Connection connection;
 
     private class JdbcManagerHolder {
-        private static final JdbcManager instance = new JdbcManager();
+        private static final JdbcManager INSTANCE = new JdbcManager();
     }
 
-    private JdbcManager() {}
+    private JdbcManager() {
+    }
+
     public static JdbcManager getInstance() {
-        return JdbcManagerHolder.instance;
+        return JdbcManagerHolder.INSTANCE;
     }
 
     private void loadProperties() throws IOException {
@@ -35,7 +37,7 @@ public class JdbcManager {
     }
 
     public void close() {
-        if(connection != null) {
+        if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {
