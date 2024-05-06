@@ -41,3 +41,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### dbConfig
+src/main/java/com/infinityIterators/config/dbcon.properties
